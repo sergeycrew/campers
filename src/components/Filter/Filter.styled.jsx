@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const FilterWrap = styled.div`
   width: 360px;
   height: 790px;
+  margin-right: 64px;
 `;
 export const LocationWrap = styled.div`
   position: relative;

@@ -42,3 +42,13 @@ export const Icon = styled.svg`
   width: 24px;
   height: 24px;
 `;
+
+export const Btn = styled.button`
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+`;

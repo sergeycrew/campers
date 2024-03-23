@@ -1,8 +1,18 @@
-import { FilterButtonItem, Icon, Text } from "./FilterButton.styled";
+import { FilterButtonItem, Icon, Span, Text } from "./FilterButton.styled";
 
-export const FilterButton = ({ sprite, id, text, width, height }) => {
+export const FilterButton = ({
+  sprite,
+  id,
+  text,
+  width,
+  height,
+  type,
+  checked,
+  onChange,
+}) => {
   return (
-    <FilterButtonItem>
+    <Text>
+      <FilterButtonItem type={type} checked={checked} onChange={onChange} />
       <Icon
         style={{
           width,
@@ -11,7 +21,7 @@ export const FilterButton = ({ sprite, id, text, width, height }) => {
       >
         <use href={`${sprite}#${id}`} aria-label="icon"></use>
       </Icon>
-      <Text>{text}</Text>
-    </FilterButtonItem>
+      <Span>{text}</Span>
+    </Text>
   );
 };

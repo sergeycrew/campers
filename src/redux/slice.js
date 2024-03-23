@@ -28,7 +28,7 @@ const catalogSlice = createSlice({
 
         return;
       }
-      state.favorites.push({ ...action.payload, favorite: true });
+      state.favorites.push({ ...action.payload });
     },
   },
   extraReducers: (builder) => {

@@ -6,8 +6,15 @@ import {
 } from "./VehicleEquipment.styled";
 import { FilterButton } from "components/FilterButton/FilterButton";
 import sprite from "assets/Images/sprite.svg";
+import { useState } from "react";
 
 export const VehicleEquipment = () => {
+  const [selectedOption, setSelectedOption] = useState(null);
+
+  const handleOptionChange = (option) => {
+    setSelectedOption(option);
+  };
+
   return (
     <>
       <Wrapper>
@@ -15,8 +22,12 @@ export const VehicleEquipment = () => {
         <EquipmentList>
           <ListItem>
             <FilterButton
+              type={"checkbox"}
+              value="AC"
+              checked={selectedOption === "AC"}
+              onChange={() => handleOptionChange("AC")}
               sprite={sprite}
-              id={"ac"}
+              id={"AC"}
               text={"AC"}
               width={"32px"}
               height={"32px"}
@@ -24,6 +35,10 @@ export const VehicleEquipment = () => {
           </ListItem>
           <ListItem>
             <FilterButton
+              type={"checkbox"}
+              value="transmission"
+              checked={selectedOption === "transmission"}
+              onChange={() => handleOptionChange("transmission")}
               sprite={sprite}
               id={"transmission"}
               text={"Automatic"}
@@ -33,6 +48,10 @@ export const VehicleEquipment = () => {
           </ListItem>
           <ListItem>
             <FilterButton
+              type={"checkbox"}
+              value="kitchen"
+              checked={selectedOption === "kitchen"}
+              onChange={() => handleOptionChange("kitchen")}
               sprite={sprite}
               id={"kitchen"}
               text={"Kitchen"}
@@ -42,6 +61,10 @@ export const VehicleEquipment = () => {
           </ListItem>
           <ListItem>
             <FilterButton
+              type={"checkbox"}
+              value="TV"
+              checked={selectedOption === "TV"}
+              onChange={() => handleOptionChange("TV")}
               sprite={sprite}
               id={"TV"}
               text={"TV"}
@@ -51,6 +74,10 @@ export const VehicleEquipment = () => {
           </ListItem>
           <ListItem>
             <FilterButton
+              type={"checkbox"}
+              value="shower"
+              checked={selectedOption === "shower"}
+              onChange={() => handleOptionChange("shower")}
               sprite={sprite}
               id={"shower"}
               text={"Shower/WC"}
@@ -65,6 +92,10 @@ export const VehicleEquipment = () => {
         <EquipmentList>
           <ListItem>
             <FilterButton
+              type={"radio"}
+              value="panelTruck"
+              checked={selectedOption === "panelTruck"}
+              onChange={() => handleOptionChange("panelTruck")}
               sprite={sprite}
               id={"panelTruck"}
               text={"Van"}
@@ -74,6 +105,10 @@ export const VehicleEquipment = () => {
           </ListItem>
           <ListItem>
             <FilterButton
+              type={"radio"}
+              value="fullyIntegrated"
+              checked={selectedOption === "fullyIntegrated"}
+              onChange={() => handleOptionChange("fullyIntegrated")}
               sprite={sprite}
               id={"fullyIntegrated"}
               text={"Fully Integrated"}
@@ -83,6 +118,10 @@ export const VehicleEquipment = () => {
           </ListItem>
           <ListItem>
             <FilterButton
+              type={"radio"}
+              value="alcove"
+              checked={selectedOption === "alcove"}
+              onChange={() => handleOptionChange("alcove")}
               sprite={sprite}
               id={"alcove"}
               text={"Alcove"}

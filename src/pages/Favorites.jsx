@@ -1,7 +1,14 @@
+import { useSelector } from "react-redux";
+import { selectFavorite } from "../redux/selector";
+import { CardList } from "../components/CardList/CardList";
+import { Container } from "../styles/container";
+
 export const Favorites = () => {
+  const favorite = useSelector(selectFavorite);
+
   return (
-    <div>
-      <h2>Favorites</h2>
-    </div>
+    <Container>
+      <CardList catalog={favorite} />
+    </Container>
   );
 };

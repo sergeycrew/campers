@@ -4,7 +4,6 @@ import { Wrapper, Button, Text } from "./CardList.styled";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import {
-  selectCatalog,
   selectItemsPerPage,
   selectPage,
   selectIsLoading,
@@ -13,10 +12,9 @@ import { fetchCatalog } from "../../redux/operation";
 import { setPage } from "../../redux/slice";
 import { FullScreenLoader } from "../Loader/Loader";
 
-export const CardList = () => {
+export const CardList = ({ catalog }) => {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
-  const catalog = useSelector(selectCatalog);
   const currentPage = useSelector(selectPage);
   const itemsPerPage = useSelector(selectItemsPerPage);
 
