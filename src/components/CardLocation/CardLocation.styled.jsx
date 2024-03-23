@@ -2,6 +2,11 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
   height: 24px;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 16px;
 `;
 
 export const Icon = styled.svg`
@@ -14,4 +19,5 @@ export const LocationCity = styled.p`
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
+  margin-left: 4px;
 `;

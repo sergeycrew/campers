@@ -8,7 +8,7 @@ export const CardLocation = ({ location }) => {
         <use href={`${sprite}#map-pin-2`} aria-label="pin icon"></use>
       </Icon>
       <LocationCity>
-        {/* {location.split(",")[1]}, {location.split(",")[0]} */}
+        {location.split(",")[1]}, {location.split(",")[0]}
       </LocationCity>
     </Wrapper>
   );

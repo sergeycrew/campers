@@ -1,25 +1,49 @@
 import { useEffect } from "react";
 import { CardItem } from "../CardItem/CardItem";
-import { Wrapper } from "./CardList.styled";
+import { Wrapper, Button, Text } from "./CardList.styled";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { selectCatalog } from "../../redux/selector";
+import {
+  selectCatalog,
+  selectItemsPerPage,
+  selectPage,
+  selectIsLoading,
+} from "../../redux/selector";
 import { fetchCatalog } from "../../redux/operation";
+import { setPage } from "../../redux/slice";
+import { FullScreenLoader } from "../Loader/Loader";
 
 export const CardList = () => {
   const dispatch = useDispatch();
-  //const isLoading = useSelector(selectIsLoading);
+  const isLoading = useSelector(selectIsLoading);
   const catalog = useSelector(selectCatalog);
+  const currentPage = useSelector(selectPage);
+  const itemsPerPage = useSelector(selectItemsPerPage);
 
   useEffect(() => {
+    dispatch(setPage(1));
     dispatch(fetchCatalog());
   }, [dispatch]);
 
-  console.log(catalog);
+  const handleLoadMore = () => {
+    dispatch(setPage(currentPage + 1));
+    dispatch(fetchCatalog());
+  };
+
+  const currentCatalog = catalog.slice(0, currentPage * itemsPerPage);
 
   return (
     <Wrapper>
-      <CardItem />
+      {isLoading && <FullScreenLoader />}
+      {currentCatalog.map((card) => (
+        <CardItem card={card} key={card._id} />
+      ))}
+
+      {currentCatalog.length < catalog.length && !isLoading && (
+        <Button onClick={handleLoadMore}>
+          <Text>Load More</Text>
+        </Button>
+      )}
     </Wrapper>
   );
 };

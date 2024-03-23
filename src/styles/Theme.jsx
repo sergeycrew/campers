@@ -8,5 +8,6 @@ export const theme = {
     lightWhiteColor: "#F7F7F7",
     whiteColor: "#FFFFFF",
     hoverButtonColor: "#D84343",
+    hoverBorder: "1px solid #E44848",
   },
 };

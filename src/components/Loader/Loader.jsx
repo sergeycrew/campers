@@ -1,7 +1,7 @@
 import { ColorRing } from "react-loader-spinner";
 import styled from "styled-components";
 
-const FullScreenLoader = styled.div`
+export const FullScreenLoader = styled.div`
   position: fixed;
   top: 0;
   left: 0;

@@ -7,5 +7,8 @@ export const Wrapper = styled.div`
 `;
 
 export const Img = styled.img`
-  background-size: cover;
+  object-fit: cover;
+  height: 310px;
+  width: 290px;
+  border-radius: 10px;
 `;

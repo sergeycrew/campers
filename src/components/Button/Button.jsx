@@ -1,9 +1,9 @@
 import { CustomButton, Text } from "./Button.styled";
 
-export const Button = ({ text }) => {
+export const Button = ({ text, style, color }) => {
   return (
-    <CustomButton>
-      <Text>{text}</Text>
+    <CustomButton style={style}>
+      <Text style={{ color }}>{text}</Text>
     </CustomButton>
   );
 };

@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchCatalog, fetchAllAdvert } from "./operation";
+import { fetchCatalog } from "./operation";
 
 const initialState = {
   catalog: [],
-  allAdvert: [],
   favorites: [],
   isLoading: false,
+  itemsPerPage: 4,
   error: null,
   currentPage: 1,
 };
@@ -15,7 +15,7 @@ const catalogSlice = createSlice({
   initialState,
   reducers: {
     setPage(state, action) {
-      state.currentPage += action.payload;
+      state.currentPage = action.payload;
     },
     changeFavorite(state, action) {
       const isFavorite = state.favorites.filter(
@@ -39,15 +39,12 @@ const catalogSlice = createSlice({
       })
       .addCase(fetchCatalog.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.catalog.push(...action.payload);
+        state.catalog = action.payload;
         state.error = null;
       })
       .addCase(fetchCatalog.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.error.message;
-      })
-      .addCase(fetchAllAdvert.fulfilled, (state, action) => {
-        state.allAdvert = action.payload;
       });
   },
 });

@@ -8,8 +8,7 @@ export const CardReview = ({ rating, reviews }) => {
         <use href={`${sprite}#star`} aria-label="star icon"></use>
       </Icon>
       <ReviewsLink to="/">
-        {/* {rating}({reviews.length}
-        Reviews) */}
+        {rating}({reviews.length} Reviews)
       </ReviewsLink>
     </Wrapper>
   );
