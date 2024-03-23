@@ -10,6 +10,10 @@ export const Text = styled.p`
   font-size: 16px;
   font-weight: 400;
   text-overflow: ellipsis;
+  letter-spacing: 0;
   overflow: hidden;
-  white-space: nowrap;
+  line-height: 24px;
+  text-wrap: nowrap;
+  overflow: hidden;
+  text-align: justify;
 `;

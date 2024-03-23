@@ -20,14 +20,24 @@ import { useDispatch } from "react-redux";
 import { changeFavorite } from "../../redux/slice";
 import { useSelector } from "react-redux";
 import { selectFavorite } from "../../redux/selector";
+import { useState } from "react";
+import { ModalCard } from "../ModalCard/ModalCard";
 
 export const CardItem = ({ card }) => {
   const dispatch = useDispatch();
 
   const favorite = useSelector(selectFavorite);
+  const [selectedCard, setSelectedCard] = useState(null);
 
   const handleFavorite = (card) => {
     dispatch(changeFavorite(card));
+  };
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const toggleModal = (card) => {
+    setIsModalOpen((prevState) => !prevState);
+    setSelectedCard(card);
   };
 
   return (
@@ -58,8 +68,12 @@ export const CardItem = ({ card }) => {
         </ReviewLocationWrap>
         <CardDescription description={card.description} />
         <CardFeatureList details={card.details} quantity={6} />
-        <Button text={"Show more"} />
+        <Button text={"Show more"} onClick={() => toggleModal(card)} />
       </InfoContainer>
+
+      {isModalOpen && (
+        <ModalCard onToggle={toggleModal} cardInfo={selectedCard} />
+      )}
     </Wrapper>
   );
 };

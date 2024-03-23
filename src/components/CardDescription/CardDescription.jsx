@@ -1,9 +1,9 @@
 import { Wrapper, Text } from "./CardDescription.styled";
 
-export const CardDescription = ({ description }) => {
+export const CardDescription = ({ description, style, wrap }) => {
   return (
-    <Wrapper>
-      <Text>{description}</Text>
+    <Wrapper style={style}>
+      <Text style={wrap}>{description}</Text>
     </Wrapper>
   );
 };
