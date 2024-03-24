@@ -5,7 +5,6 @@ export const CustomModalWrap = styled(CustomModal)``;
 
 export const Layout = styled.div`
   padding: 40px;
-  height: 1074px;
 `;
 
 export const ReviewLocationWrap = styled.div`
