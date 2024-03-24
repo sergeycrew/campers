@@ -14,6 +14,8 @@ export const Text = styled.p`
   overflow: hidden;
   line-height: 24px;
   text-wrap: nowrap;
+  white-space: nowrap;
+  -webkit-white-space: nowrap;
   overflow: hidden;
   text-align: justify;
 `;

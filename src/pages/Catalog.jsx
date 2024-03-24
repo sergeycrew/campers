@@ -9,7 +9,7 @@ export const Catalog = () => {
 
   return (
     <Container style={{ display: "flex" }}>
-      <Filter />
+      <Filter catalog={catalog} />
       <CardList catalog={catalog} />
     </Container>
   );

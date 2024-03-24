@@ -12,8 +12,18 @@ import {
 import { VehicleEquipment } from "components/VehicleEquipment/VehicleEquipment";
 import sprite from "assets/Images/sprite.svg";
 import { Button } from "../Button/Button";
+import { useDispatch } from "react-redux";
+import { fetchCatalog } from "../../redux/operation";
+import { setPage } from "../../redux/slice";
 
 export const Filter = () => {
+  const dispatch = useDispatch();
+
+  const handleOnClick = () => {
+    dispatch(setPage(1));
+    dispatch(fetchCatalog());
+  };
+
   return (
     <FilterWrap>
       <Form>
@@ -29,7 +39,7 @@ export const Filter = () => {
         <FilterText>Filters</FilterText>
         <VehicleEquipment />
         <ButtonWrapper>
-          <Button text={"Search"} />
+          <Button text={"Search"} onClick={handleOnClick} />
         </ButtonWrapper>
       </Form>
     </FilterWrap>
