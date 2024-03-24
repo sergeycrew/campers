@@ -5,6 +5,7 @@ export const CustomModalWrap = styled(CustomModal)``;
 
 export const Layout = styled.div`
   padding: 40px;
+  height: 1074px;
 `;
 
 export const ReviewLocationWrap = styled.div`
@@ -45,6 +46,7 @@ export const Button = styled.button`
   background: none;
   color: inherit;
   border: none;
+  padding-bottom: 24px;
   position: relative;
   &.active {
     border-bottom: 5px solid #e44848;
@@ -56,10 +58,15 @@ export const Button = styled.button`
     transform: scaleX(1);
     color: #e44848;
   }
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: ${(props) => (props.active ? "100%" : "0")};;
+    height: 5px;
+    background-color: #e44848;
+
 `;
 
-export const FeatureRewiewWrapperInfo = styled.div`
-  margin-top: 44px;
-  width: 902px;
-  height: 532px;
-`;
+export const ButtonItem = styled.li``;

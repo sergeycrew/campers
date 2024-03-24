@@ -2,7 +2,6 @@ import {
   Button,
   CustomModalWrap,
   FeatureRewiewWrapper,
-  FeatureRewiewWrapperInfo,
   ImageItem,
   ImageWrapper,
   Layout,
@@ -14,9 +13,14 @@ import { CardLocation } from "../CardLocation/CardLocation";
 import { CardPrice } from "../CardPrice/CardPrice";
 import { CardPicture } from "../CardPicture/CardPicture";
 import { CardDescription } from "../CardDescription/CardDescription";
+import { ModalFeatures } from "../ModalFeatures/ModalFeatures";
+import { ModalReviews } from "../ModalReviews/ModalReviews";
+import { useState } from "react";
 
 export const ModalCard = ({ onToggle, cardInfo }) => {
   console.log(cardInfo);
+
+  const [activeTab, setActiveTab] = useState("features");
 
   const { name, rating, reviews, location, price, gallery, description } =
     cardInfo;
@@ -46,10 +50,22 @@ export const ModalCard = ({ onToggle, cardInfo }) => {
           wrap={{ textWrap: "wrap" }}
         />
         <FeatureRewiewWrapper>
-          <Button>Features</Button>
-          <Button>Reviews</Button>
+          <Button
+            onClick={() => setActiveTab("features")}
+            active={activeTab === "features"}
+          >
+            Features
+          </Button>
+
+          <Button
+            onClick={() => setActiveTab("reviews")}
+            active={activeTab === "reviews"}
+          >
+            Reviews
+          </Button>
         </FeatureRewiewWrapper>
-        <FeatureRewiewWrapperInfo></FeatureRewiewWrapperInfo>
+        {activeTab === "features" && <ModalFeatures cardInfo={cardInfo} />}
+        {activeTab === "reviews" && <ModalReviews cardInfo={cardInfo} />}
       </Layout>
     </CustomModalWrap>
   );

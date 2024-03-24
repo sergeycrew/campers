@@ -10,7 +10,7 @@ import {
 } from "../../redux/selector";
 import { fetchCatalog } from "../../redux/operation";
 import { setPage } from "../../redux/slice";
-import { FullScreenLoader } from "../Loader/Loader";
+import { Loader } from "../Loader/Loader";
 
 export const CardList = ({ catalog }) => {
   const dispatch = useDispatch();
@@ -32,7 +32,7 @@ export const CardList = ({ catalog }) => {
 
   return (
     <Wrapper>
-      {isLoading && <FullScreenLoader />}
+      {isLoading && <Loader />}
       {currentCatalog.map((card) => (
         <CardItem card={card} key={card._id} />
       ))}

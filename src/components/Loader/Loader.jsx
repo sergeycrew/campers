@@ -7,7 +7,7 @@ export const FullScreenLoader = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: while;
+  background-color: #80808033;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -1,9 +1,9 @@
 import sprite from "assets/Images/sprite.svg";
 import { Icon, List, Listitem, StyledSpan } from "./CardFeatureList.styled";
 
-export const CardFeatureList = ({ details, quantity }) => {
+export const CardFeatureList = ({ details, quantity, style }) => {
   return (
-    <List>
+    <List style={style}>
       {Object.keys(details).map(
         (item, index) =>
           index < quantity && (
