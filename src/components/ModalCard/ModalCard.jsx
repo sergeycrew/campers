@@ -1,6 +1,8 @@
 import {
+  Button,
   CustomModalWrap,
   FeatureRewiewWrapper,
+  FeatureRewiewWrapperInfo,
   ImageItem,
   ImageWrapper,
   Layout,
@@ -44,11 +46,10 @@ export const ModalCard = ({ onToggle, cardInfo }) => {
           wrap={{ textWrap: "wrap" }}
         />
         <FeatureRewiewWrapper>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus,
-            dolore!
-          </p>
+          <Button>Features</Button>
+          <Button>Reviews</Button>
         </FeatureRewiewWrapper>
+        <FeatureRewiewWrapperInfo></FeatureRewiewWrapperInfo>
       </Layout>
     </CustomModalWrap>
   );
