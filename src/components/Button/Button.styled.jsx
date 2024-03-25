@@ -14,6 +14,10 @@ export const CustomButton = styled.button`
   &:hover {
     background-color: ${(p) => p.theme.colors.hoverButtonColor};
   }
+  &:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
 `;
 
 export const Text = styled.p`

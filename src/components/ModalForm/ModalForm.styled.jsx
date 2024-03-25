@@ -17,6 +17,9 @@ export const Form = styled.form`
 `;
 
 export const Icon = styled.svg`
+  position: absolute;
+  top: 20px;
+  right: 20px;
   width: 20px;
   height: 20px;
 `;
@@ -102,28 +105,4 @@ export const ErrorMsg = styled.p`
   position: absolute;
   font-size: 12px;
   color: #e44848;
-`;
-
-export const SubmitBtn = styled.button`
-  font-size: 16px;
-  font-weight: 500;
-  letter-spacing: -0.08px;
-  width: 150px;
-  max-height: 60px;
-  padding: 16px;
-  border-radius: 200px;
-  color: #fff;
-  background-color: #e44848;
-
-  &:disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-  }
-
-  @media screen and (min-width: 1440px) {
-    &:hover,
-    &:focus {
-      background-color: #d84343;
-    }
-  }
 `;

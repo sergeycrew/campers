@@ -1,20 +1,13 @@
 import { useDispatch } from "react-redux";
 import { Formik } from "formik";
 import { bookCamper } from "../../redux/slice";
-//import { formatDate } from "helpers";
+import { formatDate } from "../../utils/formatDate";
 import { bookCamperSchema } from "../../utils/bookCamperSchema";
-//import { Calendar } from "../CustomDateInput/CustomDateInput";
+import { Calendar } from "../Calendar/Calendar";
 import "react-datepicker/dist/react-datepicker.css";
 import sprite from "../../assets/Images/sprite.svg";
 import { Button } from "../Button/Button";
-import {
-  ErrorMsg,
-  Form,
-  Label,
-  SubmitBtn,
-  TitleBlock,
-  Icon,
-} from "./ModalForm.styled";
+import { ErrorMsg, Form, Label, TitleBlock, Icon } from "./ModalForm.styled";
 
 const formInitialValues = {
   name: "",
@@ -30,8 +23,7 @@ export const ModalForm = () => {
     const formData = {
       name,
       email,
-      date,
-      //date: formatDate(date),
+      date: formatDate(date),
       comment,
     };
 
@@ -41,6 +33,7 @@ export const ModalForm = () => {
       return;
     }
     dispatch(bookCamper(formData));
+    setTimeout(() => window.location.reload());
   };
 
   return (
@@ -78,7 +71,7 @@ export const ModalForm = () => {
             )}
           </Label>
           <Label>
-            {/* {<Calendar />} */}
+            {<Calendar />}
             <Icon>
               <use href={`${sprite}#calendar`}></use>
             </Icon>
@@ -99,7 +92,7 @@ export const ModalForm = () => {
           <Button
             text={"Send"}
             style={{ width: "160px", marginTop: "10px" }}
-            type="submit"
+            type={"submit"}
             disabled={Object.keys(errors).length > 0}
           />
         </Form>
