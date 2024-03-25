@@ -7,6 +7,12 @@ export const Layout = styled.div`
   padding: 40px;
 `;
 
+export const SectionWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+`;
+
 export const ReviewLocationWrap = styled.div`
   width: 526px;
   display: flex;

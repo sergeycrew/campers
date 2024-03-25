@@ -4,6 +4,7 @@ import { fetchCatalog } from "./operation";
 const initialState = {
   catalog: [],
   favorites: [],
+  bookings: [],
   isLoading: false,
   itemsPerPage: 4,
   error: null,
@@ -30,6 +31,9 @@ const catalogSlice = createSlice({
       }
       state.favorites.push({ ...action.payload });
     },
+    bookCamper: (state, { payload }) => {
+      state.bookings.push(payload);
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -51,4 +55,4 @@ const catalogSlice = createSlice({
 
 export const catalogReducer = catalogSlice.reducer;
 
-export const { setPage, changeFavorite } = catalogSlice.actions;
+export const { setPage, changeFavorite, bookCamper } = catalogSlice.actions;

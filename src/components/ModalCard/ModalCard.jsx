@@ -6,6 +6,7 @@ import {
   ImageWrapper,
   Layout,
   ReviewLocationWrap,
+  SectionWrapper,
 } from "./ModalCard.styled";
 import { CardTitle } from "../CardTitle/CardTitle";
 import { CardReview } from "../CardReview/CardReview";
@@ -16,6 +17,7 @@ import { CardDescription } from "../CardDescription/CardDescription";
 import { ModalFeatures } from "../ModalFeatures/ModalFeatures";
 import { ModalReviews } from "../ModalReviews/ModalReviews";
 import { useState } from "react";
+import { ModalForm } from "../ModalForm/ModalForm";
 
 export const ModalCard = ({ onToggle, cardInfo }) => {
   console.log(cardInfo);
@@ -64,8 +66,11 @@ export const ModalCard = ({ onToggle, cardInfo }) => {
             Reviews
           </Button>
         </FeatureRewiewWrapper>
-        {activeTab === "features" && <ModalFeatures cardInfo={cardInfo} />}
-        {activeTab === "reviews" && <ModalReviews cardInfo={cardInfo} />}
+        <SectionWrapper>
+          {activeTab === "features" && <ModalFeatures cardInfo={cardInfo} />}
+          {activeTab === "reviews" && <ModalReviews cardInfo={cardInfo} />}
+          <ModalForm />
+        </SectionWrapper>
       </Layout>
     </CustomModalWrap>
   );
