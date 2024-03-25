@@ -68,7 +68,7 @@ export const Button = styled.button`
     position: absolute;
     bottom: 0;
     left: 0;
-    width: ${(props) => (props.active ? "100%" : "0")};;
+    width: ${({ $active }) => ($active ? "100%" : "0")};;
     height: 5px;
     background-color: #e44848;
 

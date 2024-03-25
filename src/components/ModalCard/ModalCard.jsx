@@ -54,14 +54,14 @@ export const ModalCard = ({ onToggle, cardInfo }) => {
         <FeatureRewiewWrapper>
           <Button
             onClick={() => setActiveTab("features")}
-            active={activeTab === "features"}
+            $active={activeTab === "features"}
           >
             Features
           </Button>
 
           <Button
             onClick={() => setActiveTab("reviews")}
-            active={activeTab === "reviews"}
+            $active={activeTab === "reviews"}
           >
             Reviews
           </Button>

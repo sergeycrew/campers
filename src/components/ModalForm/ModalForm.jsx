@@ -42,7 +42,14 @@ export const ModalForm = () => {
       onSubmit={handleFormSubmit}
       validationSchema={bookCamperSchema}
     >
-      {({ touched, errors, handleSubmit, getFieldProps }) => (
+      {({
+        touched,
+        errors,
+        handleSubmit,
+        getFieldProps,
+        dirty,
+        isSubmitting,
+      }) => (
         <Form onSubmit={handleSubmit}>
           <TitleBlock>
             <h3>Book your campervan now</h3>
@@ -93,7 +100,7 @@ export const ModalForm = () => {
             text={"Send"}
             style={{ width: "160px", marginTop: "10px" }}
             type={"submit"}
-            disabled={Object.keys(errors).length > 0}
+            disabled={Object.keys(errors).length > 0 || !dirty || isSubmitting}
           />
         </Form>
       )}
