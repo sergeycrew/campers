@@ -11,6 +11,7 @@ export const SectionWrapper = styled.div`
   display: flex;
   flex-direction: row;
   gap: 24px;
+  //height: 100vh;
 `;
 
 export const ReviewLocationWrap = styled.div`

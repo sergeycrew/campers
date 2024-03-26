@@ -16,7 +16,7 @@ export const Modal = styled.div`
   top: 50%;
   left: 50%;
   overflow: scroll;
-  scrollbar-color: red orange;
+  scrollbar-color: #d9d9d9;
   transform: translate(-50%, -50%);
 
   width: 600px;
@@ -26,8 +26,9 @@ export const Modal = styled.div`
 
   background-color: #fff;
   border-radius: 20px;
-  //border: 1px solid #efede820;
+
   text-align: center;
+
   scrollbar-width: 8px;
   scrollbar-color: #d9d9d9;
   ::-webkit-scrollbar {
@@ -35,8 +36,9 @@ export const Modal = styled.div`
     position: absolute;
     right: 16px; /* 16px from the right side */
   }
+
   ::-webkit-scrollbar-thumb {
-    background-color: #d9d9d9;
+    background: #d9d9d9;
     border-radius: 7px; /* Roundness of the scrollbar */
   }
   ::-webkit-scrollbar {

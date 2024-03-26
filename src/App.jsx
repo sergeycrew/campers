@@ -3,7 +3,6 @@ import { MainLayout } from "./components/MainLayout/MainLayout";
 import { WelcomePage } from "./pages/WelcomePage";
 import { Catalog } from "./pages/Catalog";
 import { Favorites } from "./pages/Favorites";
-import { NotFound } from "./pages/NotFound";
 
 export const App = () => {
   return (
