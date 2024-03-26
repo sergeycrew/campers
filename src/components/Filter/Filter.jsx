@@ -33,7 +33,7 @@ export const Filter = () => {
             <Icon>
               <use href={`${sprite}#map-pin`} aria-label="pin icon"></use>
             </Icon>
-            <LocationInput />
+            <LocationInput placeholder="Kyiv, Ukraine" />
           </LocationInputWrapper>
         </LocationWrap>
         <FilterText>Filters</FilterText>

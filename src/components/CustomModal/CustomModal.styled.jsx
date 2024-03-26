@@ -15,7 +15,8 @@ export const Modal = styled.div`
   position: relative;
   top: 50%;
   left: 50%;
-
+  overflow: scroll;
+  scrollbar-color: red orange;
   transform: translate(-50%, -50%);
 
   width: 600px;
@@ -27,6 +28,20 @@ export const Modal = styled.div`
   border-radius: 20px;
   //border: 1px solid #efede820;
   text-align: center;
+  scrollbar-width: 8px;
+  scrollbar-color: #d9d9d9;
+  ::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+    position: absolute;
+    right: 16px; /* 16px from the right side */
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #d9d9d9;
+    border-radius: 7px; /* Roundness of the scrollbar */
+  }
+  ::-webkit-scrollbar {
+    height: 264px; /* Height of the scrollbar */
+  }
 
   @media screen and (max-width: 374px) {
     ${(props) => props.theme.modal320Styles}

@@ -29,7 +29,10 @@ export const ModalCard = ({ onToggle, cardInfo }) => {
 
   return (
     <CustomModalWrap
-      modalDesktopStyles={{ width: "982px", height: "720px" }}
+      modalDesktopStyles={{
+        width: "982px",
+        height: "720px",
+      }}
       onClose={onToggle}
     >
       <Layout>
