@@ -10,6 +10,7 @@ export default defineConfig({
         target: "https://65fcfea69fc4425c6530f49e.mockapi.io",
         changeOrigin: true,
         secure: false,
+        rewrite: (path) => path.replace(/^\/adverts/, ""),
       },
     },
   },
