@@ -371,7 +371,7 @@ background-color: #fff;
   padding-top: 3px;
   text-align: left;
   //width: 115px;
-`,gb=({price:e})=>w.jsxs(eR,{children:["€",e,",00"]}),tR=N.div`
+`,gb=({price:e})=>{const t=e.toFixed(2);return w.jsxs(eR,{children:["€",t]})},tR=N.div`
   height: 24px;
 `,rR=N.svg`
   width: 16px;
