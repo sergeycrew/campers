@@ -1,5 +1,6 @@
 import { Price } from "./CardPrice.styled";
 
 export const CardPrice = ({ price }) => {
-  return <Price>€{price},00</Price>;
+  const formattedPrice = price.toFixed(2);
+  return <Price>€{formattedPrice}</Price>;
 };
