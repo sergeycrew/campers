@@ -20,8 +20,6 @@ import { useState } from "react";
 import { ModalForm } from "../ModalForm/ModalForm";
 
 export const ModalCard = ({ onToggle, cardInfo }) => {
-  console.log(cardInfo);
-
   const [activeTab, setActiveTab] = useState("features");
 
   const { name, rating, reviews, location, price, gallery, description } =
