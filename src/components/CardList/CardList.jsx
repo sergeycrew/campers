@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { CardItem } from "../CardItem/CardItem";
 import { Wrapper, Button, Text } from "./CardList.styled";
 import { useDispatch } from "react-redux";
@@ -17,11 +16,6 @@ export const CardList = ({ catalog }) => {
   const isLoading = useSelector(selectIsLoading);
   const currentPage = useSelector(selectPage);
   const itemsPerPage = useSelector(selectItemsPerPage);
-
-  useEffect(() => {
-    dispatch(setPage(1));
-    dispatch(fetchCatalog());
-  }, [dispatch]);
 
   const handleLoadMore = () => {
     dispatch(setPage(currentPage + 1));
