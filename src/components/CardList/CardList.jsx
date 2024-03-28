@@ -22,7 +22,7 @@ export const CardList = ({ catalog }) => {
     dispatch(fetchCatalog());
   };
 
-  const currentCatalog = catalog.slice(0, currentPage * itemsPerPage);
+  const currentCatalog = catalog?.slice(0, currentPage * itemsPerPage);
 
   return (
     <Wrapper>
@@ -31,7 +31,7 @@ export const CardList = ({ catalog }) => {
         <CardItem card={card} key={card._id} />
       ))}
 
-      {currentCatalog.length < catalog.length && !isLoading && (
+      {currentCatalog.length < catalog?.length && !isLoading && (
         <Button onClick={handleLoadMore}>
           <Text>Load More</Text>
         </Button>
