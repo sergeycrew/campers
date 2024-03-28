@@ -3,17 +3,6 @@ import react from "@vitejs/plugin-react";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  server: {
-    cors: false,
-    proxy: {
-      "/api": {
-        target: "https://65fcfea69fc4425c6530f49e.mockapi.io",
-        changeOrigin: true,
-        secure: false,
-        rewrite: (path) => path.replace(/^\/api/, ""),
-      },
-    },
-  },
   plugins: [react()],
   resolve: {
     alias: {
