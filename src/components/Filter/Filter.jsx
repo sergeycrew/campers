@@ -17,12 +17,12 @@ import { fetchCatalog } from "../../redux/operation";
 import { setPage } from "../../redux/slice";
 
 export const Filter = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  const handleOnClick = () => {
-    dispatch(setPage(1));
-    dispatch(fetchCatalog());
-  };
+  // const handleOnClick = () => {
+  //   dispatch(setPage(1));
+  //   dispatch(fetchCatalog());
+  // };
 
   return (
     <FilterWrap>
@@ -39,7 +39,10 @@ export const Filter = () => {
         <FilterText>Filters</FilterText>
         <VehicleEquipment />
         <ButtonWrapper>
-          <Button text={"Search"} onClick={handleOnClick} />
+          <Button
+            text={"Search"}
+            //onClick={handleOnClick}
+          />
         </ButtonWrapper>
       </Form>
     </FilterWrap>
