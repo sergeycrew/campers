@@ -822,7 +822,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   }
 `,X5=N.p`
   color: ${e=>e.theme.colors.blackColor};
-`,QS=({catalog:e})=>{const t=Ku(),r=di(lR),n=di(sR),o=di(uR),i=()=>{t(Ox(n+1)),t(ba())},a=e.slice(0,n*o);return w.jsxs(q5,{children:[r&&w.jsx(nb,{}),a.map(s=>w.jsx(Q5,{card:s},s._id)),a.length<e.length&&!r&&w.jsx(G5,{onClick:i,children:w.jsx(X5,{children:"Load More"})})]})},qS=N.div`
+`,QS=({catalog:e})=>{const t=Ku(),r=di(lR),n=di(sR),o=di(uR),i=()=>{t(Ox(n+1)),t(ba())},a=e==null?void 0:e.slice(0,n*o);return w.jsxs(q5,{children:[r&&w.jsx(nb,{}),a.map(s=>w.jsx(Q5,{card:s},s._id)),a.length<(e==null?void 0:e.length)&&!r&&w.jsx(G5,{onClick:i,children:w.jsx(X5,{children:"Load More"})})]})},qS=N.div`
   width: 100%;
   padding-top: 130px;
   padding-bottom: 100px;
