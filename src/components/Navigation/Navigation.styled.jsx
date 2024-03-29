@@ -9,11 +9,12 @@ export const StyledLink = styled(NavLink)`
   font-weight: 700;
   font-size: 19px;
   &.active {
-    border-bottom: 1px solid #454545;
     text-shadow: 0px 2px 17px rgba(246, 246, 246, 1);
+    color: #e44848;
   }
-  &.active:hover {
+  &.active {
     border-bottom: 1px solid #e44848;
+    color: #e44848;
   }
   &:hover {
     transform: scaleX(1);
