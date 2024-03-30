@@ -1,9 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchCatalog } from "./operation";
+import { getAllAdverts, getTotal } from "./operation";
 
 const initialState = {
   catalog: [],
-  favorites: [],
+  total: 13,
+  favorites:
+    JSON.parse(localStorage.getItem("persist:favorites"))?.favorites ?? [],
   bookings: [],
   isLoading: false,
   itemsPerPage: 4,
@@ -26,7 +29,6 @@ const catalogSlice = createSlice({
         state.favorites = state.favorites.filter(
           (catalog) => catalog._id !== action.payload._id
         );
-
         return;
       }
       state.favorites.push({ ...action.payload });
@@ -37,6 +39,24 @@ const catalogSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
+      .addCase(getAllAdverts.fulfilled, (state, { payload }) => {
+        state.catalog = [...payload];
+        state.isLoading = false;
+        state.error = null;
+      })
+      .addCase(getTotal.fulfilled, (state, { payload }) => {
+        state.total = payload.length;
+        state.isLoading = false;
+        state.error = null;
+      })
+      .addCase(getTotal.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(getAllAdverts.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
       .addCase(fetchCatalog.pending, (state) => {
         state.isLoading = true;
         state.error = null;
@@ -45,6 +65,14 @@ const catalogSlice = createSlice({
         state.isLoading = false;
         state.catalog = action.payload;
         state.error = null;
+      })
+      .addCase(getTotal.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.error.message;
+      })
+      .addCase(getAllAdverts.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.error.message;
       })
       .addCase(fetchCatalog.rejected, (state, action) => {
         state.isLoading = false;
