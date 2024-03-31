@@ -13,8 +13,8 @@ export const Catalog = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(setPage(1));
-    dispatch(fetchCatalog());
-  }, [dispatch]);
+    dispatch(getAllAdverts({ page, limit: 4 }));
+  }, [dispatch, page, total]);
 
   return (
     <Container style={{ display: "flex" }}>

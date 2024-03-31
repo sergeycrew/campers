@@ -6,20 +6,24 @@ import {
   selectItemsPerPage,
   selectPage,
   selectIsLoading,
+  selectCatalog,
+  selectTotal,
 } from "../../redux/selector";
-import { fetchCatalog } from "../../redux/operation";
+import { fetchCatalog, getAllAdverts } from "../../redux/operation";
 import { setPage } from "../../redux/slice";
 import { Loader } from "../Loader/Loader";
 
 export const CardList = ({ catalog }) => {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
+  //const adverts = useSelector(selectCatalog);
+  //const total = useSelector(selectTotal);
   const currentPage = useSelector(selectPage);
   const itemsPerPage = useSelector(selectItemsPerPage);
 
   const handleLoadMore = () => {
     dispatch(setPage(currentPage + 1));
-    dispatch(fetchCatalog());
+    dispatch(getAllAdverts({ page, limit: 4 }));
   };
 
   const currentCatalog = catalog.slice(0, currentPage * itemsPerPage);
