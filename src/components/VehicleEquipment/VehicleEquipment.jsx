@@ -9,10 +9,12 @@ import sprite from "assets/Images/sprite.svg";
 import { useState } from "react";
 
 export const VehicleEquipment = () => {
-  const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedOption, setSelectedOption] = useState(false);
 
   const handleOptionChange = (option) => {
-    setSelectedOption(option);
+    console.log(option);
+    setSelectedOption((prev) => !prev);
+    //console.log(selectedOption);
   };
 
   return (
@@ -23,9 +25,11 @@ export const VehicleEquipment = () => {
           <ListItem>
             <FilterButton
               type={"checkbox"}
+              name={"AC"}
               value="AC"
-              checked={selectedOption === "AC"}
-              onChange={() => handleOptionChange("AC")}
+              selected={selectedOption}
+              //checked={selectedOption === "AC"}
+              onChange={handleOptionChange}
               sprite={sprite}
               id={"AC"}
               text={"AC"}
@@ -36,9 +40,11 @@ export const VehicleEquipment = () => {
           <ListItem>
             <FilterButton
               type={"checkbox"}
+              name={"transmission"}
               value="transmission"
-              checked={selectedOption === "transmission"}
-              onChange={() => handleOptionChange("transmission")}
+              selected={selectedOption}
+              //checked={selectedOption === "transmission"}
+              onChange={(evt) => handleOptionChange(evt.target.value)}
               sprite={sprite}
               id={"transmission"}
               text={"Automatic"}
@@ -50,8 +56,10 @@ export const VehicleEquipment = () => {
             <FilterButton
               type={"checkbox"}
               value="kitchen"
-              checked={selectedOption === "kitchen"}
-              onChange={() => handleOptionChange("kitchen")}
+              name={"kitchen"}
+              selected={selectedOption}
+              //checked={selectedOption === "kitchen"}
+              onChange={(evt) => handleOptionChange(evt.target.value)}
               sprite={sprite}
               id={"kitchen"}
               text={"Kitchen"}
@@ -63,8 +71,10 @@ export const VehicleEquipment = () => {
             <FilterButton
               type={"checkbox"}
               value="TV"
-              checked={selectedOption === "TV"}
-              onChange={() => handleOptionChange("TV")}
+              name={"TV"}
+              selected={selectedOption}
+              //checked={selectedOption === "TV"}
+              onChange={(evt) => handleOptionChange(evt.target.value)}
               sprite={sprite}
               id={"TV"}
               text={"TV"}
@@ -76,8 +86,10 @@ export const VehicleEquipment = () => {
             <FilterButton
               type={"checkbox"}
               value="shower"
-              checked={selectedOption === "shower"}
-              onChange={() => handleOptionChange("shower")}
+              name={"shower"}
+              selected={selectedOption}
+              // checked={selectedOption === "shower"}
+              onChange={(evt) => handleOptionChange(evt.target.value)}
               sprite={sprite}
               id={"shower"}
               text={"Shower/WC"}
@@ -94,8 +106,10 @@ export const VehicleEquipment = () => {
             <FilterButton
               type={"radio"}
               value="panelTruck"
+              name={"panelTruck"}
+              selected={selectedOption}
               checked={selectedOption === "panelTruck"}
-              onChange={() => handleOptionChange("panelTruck")}
+              onChange={(evt) => handleOptionChange(evt.target.value)}
               sprite={sprite}
               id={"panelTruck"}
               text={"Van"}
@@ -107,8 +121,10 @@ export const VehicleEquipment = () => {
             <FilterButton
               type={"radio"}
               value="fullyIntegrated"
+              name={"fullyIntegrated"}
+              selected={selectedOption}
               checked={selectedOption === "fullyIntegrated"}
-              onChange={() => handleOptionChange("fullyIntegrated")}
+              onChange={(evt) => handleOptionChange(evt.target.value)}
               sprite={sprite}
               id={"fullyIntegrated"}
               text={"Fully Integrated"}
@@ -120,8 +136,10 @@ export const VehicleEquipment = () => {
             <FilterButton
               type={"radio"}
               value="alcove"
+              name={"alcove"}
+              selected={selectedOption}
               checked={selectedOption === "alcove"}
-              onChange={() => handleOptionChange("alcove")}
+              onChange={(evt) => handleOptionChange(evt.target.value)}
               sprite={sprite}
               id={"alcove"}
               text={"Alcove"}
