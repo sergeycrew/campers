@@ -2,15 +2,15 @@ import { CardItem } from "../CardItem/CardItem";
 import { Wrapper, Button, Text } from "./CardList.styled";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { useSearchParams } from "react-router-dom";
+//import { useSearchParams } from "react-router-dom";
 import {
   selectItemsPerPage,
   selectPage,
   selectIsLoading,
-  //selectCatalog,
   selectTotal,
+  selectCatalog,
 } from "../../redux/selector";
-import { getAllAdverts, getTotal } from "../../redux/operation";
+import { getAllAdverts } from "../../redux/operation";
 import { setPage } from "../../redux/slice";
 import { Loader } from "../Loader/Loader";
 import { useEffect } from "react";
@@ -19,22 +19,23 @@ export const CardList = ({ catalog }) => {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
   const totalAdverts = useSelector(selectTotal);
+  const currentCatalog = useSelector(selectCatalog);
 
   const currentPage = useSelector(selectPage);
   const itemsPerPage = useSelector(selectItemsPerPage);
+  const lastElement = currentPage < Math.ceil(totalAdverts / itemsPerPage);
+  const onLastElementFetching = currentCatalog.length >= totalAdverts;
 
   useEffect(() => {
-    //dispatch(setPage(1));
-    //dispatch(getTotal());
+    if (onLastElementFetching) {
+      return;
+    }
     dispatch(getAllAdverts({ currentPage }));
-  }, [dispatch, currentPage]);
+  }, [dispatch, currentPage, onLastElementFetching]);
 
   const handleLoadMore = () => {
     dispatch(setPage(1));
-    console.log(currentPage);
   };
-
-  const visibleButton = currentPage < Math.ceil(totalAdverts / itemsPerPage);
 
   return (
     <Wrapper>
@@ -43,7 +44,7 @@ export const CardList = ({ catalog }) => {
         <CardItem card={card} key={card._id} />
       ))}
 
-      {visibleButton && !isLoading && (
+      {lastElement && !isLoading && (
         <Button onClick={handleLoadMore}>
           <Text>Load More</Text>
         </Button>

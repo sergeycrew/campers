@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchCatalog } from "./operation";
 import { getAllAdverts, getTotal } from "./operation";
 
 const initialState = {
@@ -42,8 +41,10 @@ const catalogSlice = createSlice({
       .addCase(getAllAdverts.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.error = null;
-        state.catalog = [...payload];
-        //state.currentPage += 1;
+        state.catalog =
+          state.currentPage >= 2
+            ? [...state.catalog, ...payload]
+            : [...payload];
       })
       .addCase(getAllAdverts.pending, (state) => {
         state.isLoading = true;
