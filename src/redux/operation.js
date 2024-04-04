@@ -23,7 +23,7 @@ export const getAllAdverts = createAsyncThunk(
       page,
       limit,
     };
-
+    // resolve this
     gerAllSearchParams(searchParams, axiosParams);
 
     try {
