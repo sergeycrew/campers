@@ -18,19 +18,17 @@ export const fetchCatalog = createAsyncThunk(
 
 export const getAllAdverts = createAsyncThunk(
   "adverts/getAll",
-  async ({ page, limit, searchParams }, thunkAPI) => {
-    const axiosParams = {
-      page,
-      limit,
-    };
+  async ({ currentPage }, thunkAPI) => {
+    // const axiosParams = {
+    //   currentPage,
+    //   limit,
+    // };
     // resolve this
-    gerAllSearchParams(searchParams, axiosParams);
+    // gerAllSearchParams(searchParams, axiosParams);
 
     try {
-      const { data } = await axios.get(`/adverts`, {
-        params: axiosParams,
-      });
-
+      const { data } = await axios.get(`/adverts?page=${currentPage}&limit=4`);
+      console.log(data);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -41,16 +39,12 @@ export const getAllAdverts = createAsyncThunk(
 export const getTotal = createAsyncThunk(
   "adverts/getTotal",
   async (searchParams, thunkAPI) => {
-    const axiosParams = {};
-
-    gerAllSearchParams(searchParams, axiosParams);
+    gerAllSearchParams(searchParams);
 
     try {
-      const { data } = await axios.get(`/adverts`, {
-        params: axiosParams,
-      });
-
-      return data;
+      const { data } = await axios.get(`/adverts`);
+      //console.log(data);
+      return data.lenght;
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }

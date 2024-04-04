@@ -18,33 +18,32 @@ import { useEffect } from "react";
 export const CardList = ({ catalog }) => {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
-  //const adverts = useSelector(selectCatalog);
-  const [searchParams, setSearchParams] = useSearchParams();
-  const total = useSelector(selectTotal);
+  const totalAdverts = useSelector(selectTotal);
+
   const currentPage = useSelector(selectPage);
   const itemsPerPage = useSelector(selectItemsPerPage);
 
   useEffect(() => {
-    dispatch(setPage(1));
-    dispatch(getTotal(searchParams));
-    dispatch(getAllAdverts({ currentPage, limit: 4 }));
-  }, [dispatch, currentPage, total, searchParams]);
+    //dispatch(setPage(1));
+    //dispatch(getTotal());
+    dispatch(getAllAdverts({ currentPage }));
+  }, [dispatch, currentPage]);
 
   const handleLoadMore = () => {
-    dispatch(setPage(currentPage + 1));
-    dispatch(getAllAdverts({ currentPage, limit: 4 }));
+    dispatch(setPage(1));
+    console.log(currentPage);
   };
 
-  const currentCatalog = catalog.slice(0, currentPage * itemsPerPage);
+  const visibleButton = currentPage < Math.ceil(totalAdverts / itemsPerPage);
 
   return (
     <Wrapper>
       {isLoading && <Loader />}
-      {currentCatalog.map((card) => (
+      {catalog.map((card) => (
         <CardItem card={card} key={card._id} />
       ))}
 
-      {currentCatalog.length < catalog.length && !isLoading && (
+      {visibleButton && !isLoading && (
         <Button onClick={handleLoadMore}>
           <Text>Load More</Text>
         </Button>

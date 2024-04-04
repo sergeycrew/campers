@@ -19,7 +19,7 @@ const catalogSlice = createSlice({
   initialState,
   reducers: {
     setPage(state, action) {
-      state.currentPage = action.payload;
+      state.currentPage += action.payload;
     },
     changeFavorite(state, action) {
       const isFavorite = state.favorites.filter(
@@ -40,32 +40,33 @@ const catalogSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getAllAdverts.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = null;
         state.catalog = [...payload];
-        state.isLoading = false;
-        state.error = null;
-      })
-      .addCase(getTotal.fulfilled, (state, { payload }) => {
-        state.total = payload.length;
-        state.isLoading = false;
-        state.error = null;
-      })
-      .addCase(getTotal.pending, (state) => {
-        state.isLoading = true;
-        state.error = null;
+        //state.currentPage += 1;
       })
       .addCase(getAllAdverts.pending, (state) => {
         state.isLoading = true;
         state.error = null;
       })
-      .addCase(fetchCatalog.pending, (state) => {
+      .addCase(getTotal.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = null;
+        state.total = payload;
+      })
+      .addCase(getTotal.pending, (state) => {
         state.isLoading = true;
         state.error = null;
       })
-      .addCase(fetchCatalog.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.catalog = action.payload;
-        state.error = null;
-      })
+      // .addCase(fetchCatalog.pending, (state) => {
+      //   state.isLoading = true;
+      //   state.error = null;
+      // })
+      // .addCase(fetchCatalog.fulfilled, (state, action) => {
+      //   state.isLoading = false;
+      //   state.catalog = action.payload;
+      //   state.error = null;
+      // })
       .addCase(getTotal.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.error.message;
@@ -73,11 +74,11 @@ const catalogSlice = createSlice({
       .addCase(getAllAdverts.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.error.message;
-      })
-      .addCase(fetchCatalog.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.error.message;
       });
+    // .addCase(fetchCatalog.rejected, (state, action) => {
+    //   state.isLoading = false;
+    //   state.error = action.error.message;
+    // });
   },
 });
 
