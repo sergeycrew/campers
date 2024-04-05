@@ -7,14 +7,27 @@ import {
 import { FilterButton } from "components/FilterButton/FilterButton";
 import sprite from "assets/Images/sprite.svg";
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import { selectFilter } from "../../redux/selector";
 
 export const VehicleEquipment = () => {
-  const [selectedOption, setSelectedOption] = useState(false);
+  const filter = useSelector(selectFilter);
+  const [details, setDetails] = useState(filter.details);
+  const [vehicleType, setVehicleType] = useState(filter.vehicleType || "");
 
-  const handleOptionChange = (option) => {
-    console.log(option);
-    setSelectedOption((prev) => !prev);
-    //console.log(selectedOption);
+  const handleVehicleType = (e) => {
+    const { value } = e.target;
+
+    setVehicleType(value === vehicleType ? "" : value);
+  };
+
+  const handleEquipment = (e) => {
+    const { name, checked } = e.target;
+    //console.log(e);
+    //console.log(value);
+    //console.log(checked);
+    setDetails({ ...details, [name]: checked });
+    console.log(details);
   };
 
   return (
@@ -24,12 +37,11 @@ export const VehicleEquipment = () => {
         <EquipmentList>
           <ListItem>
             <FilterButton
+              checked={details.ac}
+              onChange={handleEquipment}
               type={"checkbox"}
-              name={"AC"}
+              name="ac"
               value="AC"
-              selected={selectedOption}
-              //checked={selectedOption === "AC"}
-              onChange={handleOptionChange}
               sprite={sprite}
               id={"AC"}
               text={"AC"}
@@ -39,12 +51,11 @@ export const VehicleEquipment = () => {
           </ListItem>
           <ListItem>
             <FilterButton
+              checked={details.automatic}
+              onChange={handleEquipment}
               type={"checkbox"}
-              name={"transmission"}
-              value="transmission"
-              selected={selectedOption}
-              //checked={selectedOption === "transmission"}
-              onChange={(evt) => handleOptionChange(evt.target.value)}
+              name="automatic"
+              value="automatic"
               sprite={sprite}
               id={"transmission"}
               text={"Automatic"}
@@ -54,12 +65,11 @@ export const VehicleEquipment = () => {
           </ListItem>
           <ListItem>
             <FilterButton
+              checked={details.kitchen}
+              onChange={handleEquipment}
               type={"checkbox"}
+              name="kitchen"
               value="kitchen"
-              name={"kitchen"}
-              selected={selectedOption}
-              //checked={selectedOption === "kitchen"}
-              onChange={(evt) => handleOptionChange(evt.target.value)}
               sprite={sprite}
               id={"kitchen"}
               text={"Kitchen"}
@@ -69,12 +79,11 @@ export const VehicleEquipment = () => {
           </ListItem>
           <ListItem>
             <FilterButton
+              checked={details.tv}
+              onChange={handleEquipment}
               type={"checkbox"}
-              value="TV"
-              name={"TV"}
-              selected={selectedOption}
-              //checked={selectedOption === "TV"}
-              onChange={(evt) => handleOptionChange(evt.target.value)}
+              name="tv"
+              value="tv"
               sprite={sprite}
               id={"TV"}
               text={"TV"}
@@ -84,12 +93,11 @@ export const VehicleEquipment = () => {
           </ListItem>
           <ListItem>
             <FilterButton
+              checked={details.bathroom}
+              onChange={handleEquipment}
               type={"checkbox"}
-              value="shower"
-              name={"shower"}
-              selected={selectedOption}
-              // checked={selectedOption === "shower"}
-              onChange={(evt) => handleOptionChange(evt.target.value)}
+              name="bathroom"
+              value="bathroom"
               sprite={sprite}
               id={"shower"}
               text={"Shower/WC"}
@@ -104,12 +112,10 @@ export const VehicleEquipment = () => {
         <EquipmentList>
           <ListItem>
             <FilterButton
+              onChange={handleVehicleType}
               type={"radio"}
+              name="vehicleTypes"
               value="panelTruck"
-              name={"panelTruck"}
-              selected={selectedOption}
-              checked={selectedOption === "panelTruck"}
-              onChange={(evt) => handleOptionChange(evt.target.value)}
               sprite={sprite}
               id={"panelTruck"}
               text={"Van"}
@@ -119,12 +125,10 @@ export const VehicleEquipment = () => {
           </ListItem>
           <ListItem>
             <FilterButton
+              onChange={handleVehicleType}
               type={"radio"}
               value="fullyIntegrated"
               name={"fullyIntegrated"}
-              selected={selectedOption}
-              checked={selectedOption === "fullyIntegrated"}
-              onChange={(evt) => handleOptionChange(evt.target.value)}
               sprite={sprite}
               id={"fullyIntegrated"}
               text={"Fully Integrated"}
@@ -134,12 +138,10 @@ export const VehicleEquipment = () => {
           </ListItem>
           <ListItem>
             <FilterButton
+              onChange={handleVehicleType}
               type={"radio"}
               value="alcove"
               name={"alcove"}
-              selected={selectedOption}
-              checked={selectedOption === "alcove"}
-              onChange={(evt) => handleOptionChange(evt.target.value)}
               sprite={sprite}
               id={"alcove"}
               text={"Alcove"}

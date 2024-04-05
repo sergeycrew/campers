@@ -11,6 +11,7 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { catalogReducer } from "./slice";
+import { filterReducer } from "./filterSlise";
 
 const persistFavoriteConfig = {
   key: "favorite",
@@ -20,6 +21,7 @@ const persistFavoriteConfig = {
 
 const rootReducer = combineReducers({
   catalog: persistReducer(persistFavoriteConfig, catalogReducer),
+  filter: filterReducer,
 });
 
 export const store = configureStore({

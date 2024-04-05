@@ -9,10 +9,16 @@ export const FilterButton = ({
   type,
   checked,
   onChange,
+  name,
 }) => {
   return (
     <Text>
-      <FilterButtonItem type={type} checked={checked} onChange={onChange} />
+      <FilterButtonItem
+        type={type}
+        name={name}
+        checked={checked}
+        onChange={onChange}
+      />
       <Icon
         style={{
           width,
