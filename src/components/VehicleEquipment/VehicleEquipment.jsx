@@ -25,7 +25,7 @@ export const VehicleEquipment = () => {
     const { name, checked } = e.target;
     //console.log(e);
     //console.log(value);
-    //console.log(checked);
+    
     setDetails({ ...details, [name]: checked });
     console.log(details);
   };
