@@ -10,7 +10,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { selectFilter } from "../../redux/selector";
 
-export const VehicleEquipment = () => {
+export const VehicleEquipment = ({ checked }) => {
   const filter = useSelector(selectFilter);
   const [details, setDetails] = useState(filter.details);
   const [vehicleType, setVehicleType] = useState(filter.vehicleType || "");
@@ -23,10 +23,16 @@ export const VehicleEquipment = () => {
 
   const handleEquipment = (e) => {
     const { name, checked } = e.target;
+    if (checked) {
+      setDetails((prev) => ({
+        ...prev,
+        [name]: checked,
+      }));
+    }
+
     //console.log(e);
     //console.log(value);
-    
-    setDetails({ ...details, [name]: checked });
+
     console.log(details);
   };
 
@@ -37,11 +43,11 @@ export const VehicleEquipment = () => {
         <EquipmentList>
           <ListItem>
             <FilterButton
-              checked={details.ac}
+              checked={checked}
               onChange={handleEquipment}
               type={"checkbox"}
               name="ac"
-              value="AC"
+              value="ac"
               sprite={sprite}
               id={"AC"}
               text={"AC"}

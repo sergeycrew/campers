@@ -30,11 +30,14 @@ export const Text = styled.label`
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2),
       0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
+  &:checked {
+    border-color: #e44848;
+  }
 `;
 
 export const FilterButtonItem = styled.input`
   appearance: none;
   &:checked ~ label {
-    border-color: "#E44848";
+    border-color: #e44848;
   }
 `;
