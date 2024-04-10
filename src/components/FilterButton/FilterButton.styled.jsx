@@ -16,8 +16,8 @@ export const Text = styled.label`
   align-items: center;
   width: 113px;
   height: 95px;
-  //border: 1px solid ${(p) => (p.selected ? "#E44848" : "#10182833")};
-  border: 1px solid #10182833;
+  border: 1px solid ${(p) => (p.checked ? "#E44848" : "#10182833")};
+  //border: 1px solid #10182833;
 
   border-opacity: 0.2;
   border-radius: 10px;

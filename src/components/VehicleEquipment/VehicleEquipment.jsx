@@ -30,7 +30,7 @@ export const VehicleEquipment = ({ checked }) => {
       }));
     }
 
-    //console.log(e);
+    console.log(e);
     //console.log(value);
 
     console.log(details);
