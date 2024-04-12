@@ -4,6 +4,7 @@ export const Wrapper = styled.div`
   height: 310px;
   width: 290px;
   border-radius: 10px;
+  align-self: stretch;
 `;
 
 export const Img = styled.img`
@@ -11,7 +12,5 @@ export const Img = styled.img`
   height: 100%;
   width: 100%;
   object-fit: cover;
-  // height: 310px;
-  // width: 290px;
   border-radius: 10px;
 `;
