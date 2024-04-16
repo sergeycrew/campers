@@ -17,8 +17,6 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { setSearchParams, resetFilter } from "../../redux/filterSlise";
 import { selectFilter } from "../../redux/selector";
-//import { fetchCatalog } from "../../redux/operation";
-//import { setPage } from "../../redux/slice";
 
 export const Filter = () => {
   const dispatch = useDispatch();

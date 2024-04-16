@@ -1,5 +1,4 @@
 import DatePicker from "react-datepicker";
-//import "react-datepicker/dist/react-datepicker.module.css";
 import { useField, useFormikContext } from "formik";
 import { CalendarGlobalStyles } from "./Calendar.styled";
 
