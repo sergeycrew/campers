@@ -18,7 +18,7 @@ export const Button = styled.button`
   box-sizing: border-box;
   gap: 10px;
   justify-content: center;
-  border: 1px solid #10182833;
+  border: 2px solid #10182833;
   background-color: ${(p) => p.theme.colors.whiteColor};
   &:hover {
     border: ${(p) => p.theme.colors.hoverBorder};
