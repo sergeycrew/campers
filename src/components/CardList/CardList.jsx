@@ -31,6 +31,7 @@ export const CardList = ({ catalog }) => {
       return;
     }
     dispatch(getAllAdverts({ currentPage }));
+    console.log(currentPage);
   }, [dispatch, currentPage, onLastElementFetching]);
 
   const handleLoadMore = () => {
