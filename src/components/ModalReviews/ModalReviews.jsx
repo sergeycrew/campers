@@ -14,7 +14,6 @@ import {
 import sprite from "../../assets/Images/sprite.svg";
 
 export const ModalReviews = ({ cardInfo }) => {
-  //console.log(cardInfo);
   return (
     <ReviewList>
       {cardInfo.reviews.map((review, index) => (
