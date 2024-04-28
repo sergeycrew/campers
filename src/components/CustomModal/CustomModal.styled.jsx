@@ -68,7 +68,7 @@ export const CloseModalBtn = styled.button`
   border: none;
   outline: none;
   cursor: pointer;
-  background-color: #fff;
+  background-color: #fefefe;
   align-items: center;
   padding: 0px;
 `;
