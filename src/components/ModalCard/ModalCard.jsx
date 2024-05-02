@@ -22,7 +22,7 @@ import { ModalForm } from "../ModalForm/ModalForm";
 export const ModalCard = ({ onToggle, cardInfo }) => {
   const [activeTab, setActiveTab] = useState("features");
 
-  console.log(cardInfo);
+  //console.log(cardInfo);
 
   HTMLFormControlsCollection.log(cardInfo);
 
