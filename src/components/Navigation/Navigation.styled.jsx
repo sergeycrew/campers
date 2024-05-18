@@ -9,7 +9,7 @@ export const StyledLink = styled(NavLink)`
   font-weight: 700;
   font-size: 19px;
   &.active {
-    text-shadow: 0px 3px 17px rgba(246, 246, 246, 1);
+    text-shadow: 0px 2px 17px rgba(246, 246, 246, 1);
     color: #e44848;
   }
   &.active {
