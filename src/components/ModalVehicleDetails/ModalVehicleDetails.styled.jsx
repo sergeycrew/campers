@@ -9,7 +9,7 @@ export const Title = styled.p`
   text-align: left;
 
   border-bottom: 1px solid #10182833;
-  padding-bottom: 23px;
+  padding-bottom: 22px;
 `;
 export const DetailsList = styled.ul`
   padding-top: 10px;
