@@ -11,7 +11,7 @@ export const Icon = styled.svg`
 `;
 
 export const ReviewsLink = styled(NavLink)`
-  border-bottom: 2px solid;
+  border-bottom: 1px solid;
   margin-left: 4px;
   color: #101828;
   font-size: 16px;
