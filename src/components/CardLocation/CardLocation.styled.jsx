@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 16px;
+  margin-left: 15px;
 `;
 
 export const Icon = styled.svg`
