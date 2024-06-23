@@ -8,5 +8,5 @@ export const Price = styled.h1`
   margin-right: 11px;
   padding-top: 3px;
   text-align: left;
-  //width: 115px;
+  //width: 11px;
 `;
